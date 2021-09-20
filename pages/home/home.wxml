@@ -1,0 +1,64 @@
+<!--pages/home/home.wxml-->
+<view>
+    <!-- 自定义头部 -->
+    <view class='nav bg-white' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <navigator url="/pages/search/search">
+                <view class="INinputheader" bindtap="gosearch">
+                    <icon class="INsearchicon" type="search" size="18" />
+                    <input class="weui-input" placeholder="搜索内容" />
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>
+
+
+
+<!-- 轮播图 -->
+<view class="banner">
+    <swiper indicator-dots indicator-color='#fff' indicator-active-color="#007AAE" autoplay>
+        <block wx:for="{{imgs}}" wx:key="index">
+            <swiper-item>
+                <image mode="widthFix" src="{{item.image_src}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!-- 分类功能 -->
+<view>
+    <movable-area class="bigcategory">
+        <movable-view class="max" direction="horizontal" class="category " style="transform: translateX({{x}}px)">
+            <view class="item" wx:for="{{iconCate}}" wx:key="*this" catchtap="goCategory" data-index="{{index}}">
+                <image src="{{iconArray[index].url}}"></image>
+                <text>{{item}}</text>
+            </view>
+        </movable-view>
+    </movable-area>
+</view>
+<!-- 商品列表 -->
+<view class="commonTitle">
+    <text>商品列表</text>
+</view>
+<view class="goodslist" wx:for="{{goodsList}}" wx:key="id">
+    <view class="left">
+        <image src="{{item.goodsImage}}"></image>
+    </view>
+    <navigator class="right" url="/pages/details/details?id={{item.id}}" hover-class="none">
+        <view class="right">
+            <view class="goods_name">
+                <text>{{item.goodsName}}</text>
+            </view>
+            <view class="goods_address">
+                <text>{{item.goodsAddress}}</text>
+            </view>
+            <view class="goods_price">
+                <text>￥{{item.goodsPrice}}</text>
+            </view>
+            <view class="car">
+                <image src="/images/car.png"></image>
+            </view>
+        </view>
+    </navigator>
+
+</view>

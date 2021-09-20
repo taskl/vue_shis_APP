@@ -1,0 +1,64 @@
+<!--pages/order/order.wxml-->
+<view class="navOrder">
+    <view class="item {{index == 0? 'con':''}}" bindtap="setIndex" data-index="0">
+        全部订单
+    </view>
+    <view class="item {{ index == 1? 'con':''}}" bindtap="setIndex" data-index="1">
+        待付款
+    </view>
+    <view class="item {{index == 2?'con':''}}" bindtap="setIndex" data-index="2">
+        待发货
+    </view>
+    <view class="item {{index == 3?'con':''}}" bindtap="setIndex" data-index="3">
+        待收货
+    </view>
+    <view class="item {{index == 4?'con':''}}" bindtap="setIndex" data-index="4">
+        待评价
+    </view>
+</view>
+
+<view class="orderList">
+    <!-- wx:for="{{list}}" //list为要循环遍历的数组 -->
+    <!-- wx:for-items="{{list}}" //list为要循环遍历的数组，同for一样 -->
+    <!-- wx:for-item="item" //item作为代表每一项的对象 -->
+    <view class="order" wx:for="{{orderLists}}" wx:key="*this" wx:for-index='i'
+        wx:if="{{item.type ==  index || index == 0}}">
+        <view class="h1">
+            订单号:{{item.orderId}}
+            <text class="type" wx:if="{{item.type == 1}}">待付款</text>
+            <text class="type" wx:elif="{{item.type == 2}}">待发货</text>
+            <text class="type" wx:elif="{{item.type == 3}}">待收货</text>
+            <text class="type" wx:elif="{{item.type == 4}}">待评价</text>
+            <text class="type" wx:elif="{{item.type == 0}}">已完成</text>
+        </view>
+        <view class="goodslist" wx:for="{{item.orderLists}}" wx:for-index="key" wx:for-item="value" wx:key="*this">
+            <view class="left">
+                <image src="{{value.goodsImage}}"></image>
+            </view>
+            <view class="right">
+                <view class="goods_name">
+                    <text>{{value.goodsName}}</text>
+                </view>
+                <view class="goods_price">
+                    <text>￥{{value.goodsPrice}}</text>
+                </view>
+                <view class="goods_num">
+                    <text>x{{value.num}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="fl">
+                总价格: <text>￥{{item.total}}</text>
+            </view>
+            <view class="fr">
+                <view class="btn" bindtap="goPayed" data-id="{{item.orderId}}" wx:if="{{item.type == 1}}">支付</view>
+                <view class="btn" bindtap="goDelivery" data-id="{{item.orderId}}" wx:if="{{item.type == 2}}"> 发货</view>
+                <view class="btn" bindtap="goGoods" data-id="{{item.orderId}}" wx:if="{{item.type == 3}}"> 确认收货</view>
+                <view class="btn" bindtap="goEvaluation" data-id="{{item.orderId}}" wx:if="{{item.type == 4}}"> 评价</view>
+            </view>
+        </view>
+    </view>
+
+
+</view>

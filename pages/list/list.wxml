@@ -1,0 +1,26 @@
+<!--pages/list/list.wxml-->
+<view class="usname">
+    {{uname}}
+</view>
+<view class="goodslist" wx:for="{{goodsList}}" wx:key="id">
+    <view class="left">
+        <image src="{{item.goodsImage}}"></image>
+    </view>
+    <navigator class="right" url="/pages/details/details?id={{item.id}}" hover-class="none">
+        <view class="right">
+            <view class="goods_name">
+                <text>{{item.goodsName}}</text>
+            </view>
+            <view class="goods_address">
+                <text>{{item.goodsAddress}}</text>
+            </view>
+            <view class="goods_price">
+                <text>￥{{item.goodsPrice}}</text>
+            </view>
+            <view class="car">
+                <image src="/images/car.png"></image>
+            </view>
+        </view>
+    </navigator>
+
+</view>

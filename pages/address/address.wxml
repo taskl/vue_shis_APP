@@ -1,0 +1,39 @@
+<!--pages/address/address.wxml-->
+<view>
+    <view class="address" wx:for="{{list}}" wx:key="*this">
+        <view class="checbox">
+            <!-- <input type="checkbox" /> -->
+            <checkbox-group bindchange="checkboxChange">
+                <checkbox value="{{item.id}}" checked="{{item.checked}}"></checkbox>
+            </checkbox-group>
+        </view>
+        <view class="adrtext">
+            <view class="username">
+                <text>{{item.name}} </text>
+                <text>{{item.tel}}</text>
+            </view>
+            <view>
+                <text>地址：</text>
+                <text>{{item.addre}}</text>
+            </view>
+        </view>
+        <navigator class="edit" url="/pages/setaddress/setaddress?id={{item.id}}">
+            <view class="iconfont icon-bianji"></view>
+        </navigator>
+    </view>
+    <view class="newAddress">
+        <view class="getAddress">
+            <view bindtap="getAddress">
+                <!-- <text class="iconfont icon-zengjia"></text> -->
+                <text class="newtext">新增个人地址</text>
+            </view>
+            <!-- <view class="iconfont icon-xiangyou" ></view> -->
+        </view>
+        <view class="weixin" bindtap="goAddress">
+            <view class="weitxt">
+                <text class="iconfont icon-weixinfang"></text>
+                <text>微信导入</text>
+            </view>
+        </view>
+    </view>
+</view>

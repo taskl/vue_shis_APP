@@ -1,0 +1,68 @@
+<!--pages/car/car.wxml-->
+<view class="goodslist" wx:for="{{goodsList}}" wx:key="*this">
+    <view class="left">
+        <image src="{{item.goodsImage}}"></image>
+    </view>
+    <view class="right">
+        <view class="goods_name">
+            <text>{{item.goodsName}}</text>
+        </view>
+        <view class="goods_price">
+            <text>￥{{item.goodsPrice}}</text>
+        </view>
+        <view class="carBtn">
+            <view class="btn" bindtap="reduce" data-id="{{index}}">-</view>
+            <text class="num">{{item.num}}</text>
+            <view class="btn" bindtap="add" data-id="{{index}}">+</view>
+        </view>
+        <!-- target 触发事件的源组件。 -->
+        <!-- currentTarget 事件绑定的当前组件。 -->
+        <view class="car" bindtap="del" data-id="{{index}}">
+            <image src="/images/shanchu.png"></image>
+        </view>
+    </view>
+</view>
+
+<!-- 底部导航 -->
+<view class="bottomNav" wx:if="{{goodsList.length}}">
+    <view class="warp">
+        总价格：<text>￥{{totalData}}</text>
+        <view class="order" bindtap="goPay">下单</view>
+    </view>
+</view>
+
+<!-- 购物车为空提示 -->
+<view class="goodsNull" wx:if="{{!goodsList.length}}">
+    <view>
+        <view class="iconfont icon-gouwuchekong"></view>
+        <view class="text">购物车为空，请去选择商品</view>
+    </view>
+    <view>
+        <!-- 猜你喜欢 -->
+        <view class="commonTitle">
+            <text>猜你喜欢</text>
+        </view>
+        <view class="goodslist" wx:for="{{recomList}}" wx:key="id">
+    <view class="left">
+        <image mode="widthFix" src="{{item.goodsImage}}"></image>
+    </view>
+    <navigator class="right" url="/pages/details/details?id={{item.id}}" hover-class="none">
+        <view class="right">
+            <view class="goods_name">
+                <text>{{item.goodsName}}</text>
+            </view>
+            <view class="goods_address">
+                <text>{{item.goodsAddress}}</text>
+            </view>
+            <view class="goods_price">
+                <text>￥{{item.goodsPrice}}</text>
+            </view>
+            <view class="car">
+                <image src="/images/car.png"></image>
+            </view>
+        </view>
+    </navigator>
+
+</view>
+    </view>
+</view>

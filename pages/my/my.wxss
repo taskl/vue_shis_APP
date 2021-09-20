@@ -1,0 +1,84 @@
+/* pages/my/my.wxss */
+image{
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+}
+
+.info{
+    padding:40rpx 0px;
+    background-color: #fff;
+    text-align:center;
+}
+.info .photo{
+    width:180rpx;
+    height: 180rpx;
+    margin:0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+/* .img{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+} */
+.info .photo .img{
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+}
+
+.info .nickname{
+    font-size: 36rpx;
+    margin-top: 20rpx;
+}
+
+.ul{
+    border-top:1px solid #e5e5e5;
+    margin-top: 30rpx;
+    background-color: #fff;
+}
+.ul .li{
+    border-bottom: 1px solid #e5e5e5;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    text-indent: 1em;
+    position: relative;
+}
+.contact{
+    /* color: #e5e5e5; */
+    width: 100%;
+    font-weight: normal;
+    background-color: #fff;
+    text-align: left;
+    font-size: 28rpx;
+    /* display: flex; */
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+}
+.ul .li image{
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top:26rpx;
+    right: 20rpx;
+}
+.orderlist{
+    display: flex;
+    padding:10px 0px;
+    background-color: #fff;
+    margin-top: 30rpx;
+}
+.orderlist .item{
+    flex:1;
+    text-align: center;
+}
+.orderlist .item .iconfont{
+    font-size: 44rpx;
+}
+.orderlist .item text{
+    font-size: 28rpx;
+}

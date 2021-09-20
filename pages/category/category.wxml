@@ -1,0 +1,50 @@
+<!--pages/category/category.wxml-->
+<!-- <view> -->
+    <!-- 自定义头部 -->
+    <!-- <view class='nav bg-white' style='height:{{navH}}px'>
+        <view class='nav-title'>
+            <navigator url="/pages/search/search">
+                <view class="INinputheader">
+                    <icon class="INsearchicon" type="search" size="18" />
+                    <input class="weui-input" placeholder="搜索学习内容" />
+                </view>
+            </navigator>
+
+        </view>
+    </view> -->
+<!-- </view> -->
+
+
+<!-- <scroll-view class="categoryItem" scroll-y="true" style="height:{{scrollHeight}}px"> -->
+<!-- 1. 触发事件 bindtap 数据传参在data-*中设置 -->
+<view class="categoryBox">
+    <scroll-view class="categoryItem" scroll-y="true">
+        <view class="item">
+            <view wx:for="{{categoryItem}}" wx:key="*this" class="{{index == num? 'con':''}}" bindtap="setIndex"
+                data-id="{{index}}">
+                {{item}}
+            </view>
+        </view>
+    </scroll-view>
+
+    <!-- 右侧内容 -->
+    <!-- <scroll-view class="contentItem" scroll-y="true" style="height:{{scrollHeight}}px"> -->
+    <scroll-view class="contentItems" scroll-y="true">
+        <view class="content">
+            <!-- <view>产品名</view> -->
+            <view class="ul" wx:for="{{content[num]}}" wx:key="id">
+                <view class="title">{{item.cat_name}}</view>
+                <view class="contentos">
+                    <navigator class="li" wx:for="{{item.children}}" wx:for-item="key" wx:key="index" url="/pages/list/list?id={{key.cat_id}}&uname={{key.cat_name}}" >
+                        <!-- <view  wx:for="{{item.children}}" wx:for-item="key" wx:key="index" bindtap="godetails" -->
+                            <!-- data-id="{{key.cat_id}}"> -->
+                            <image src="{{key.cat_icon}}"></image>
+                            <text>{{key.cat_name}}</text>
+                        <!-- </view> -->
+                    </navigator>
+                </view>
+
+            </view>
+        </view>
+    </scroll-view>
+</view>

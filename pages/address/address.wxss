@@ -1,0 +1,123 @@
+/* pages/address/address.wxss */
+page {
+    background-color: #F5F6F7;
+}
+
+.address {
+    width: 100%;
+    height: 160rpx;
+    background-color: #ffffff;
+    border-top: 2rpx solid #eee;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20rpx;
+}
+
+checkbox .wx-checkbox-input {
+    border-radius: 50%;
+    /* 圆角 */
+    width: 40rpx;
+    /* 背景的宽 */
+    height: 40rpx;
+    /* 背景的高 */
+}
+
+/* 选中后的 背景样式*/
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    border: 1rpx solid #6DC4AC;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    border-radius: 50%;
+    /* 圆角 */
+    width: 40rpx;
+    /* 选中后对勾大小，不要超过背景的尺寸 */
+    height: 40rpx;
+    /* 选中后对勾大小，不要超过背景的尺寸 */
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 30rpx;
+    /* 对勾大小 30rpx */
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.adrtext {
+    color: #333;
+    font-size: 30rpx;
+}
+
+.edit {
+    position: absolute;
+    top: 50%;
+    right: 7%;
+    transform: translateY(-50%);
+}
+
+.icon-bianji {
+    font-size: 42rpx;
+    color: #555;
+}
+
+.newAddress {
+    width: 100%;
+    height: 160rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    border-top: 2rpx solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.getAddress {
+    margin-left: 70rpx;
+    background-color: #6DC4AC;
+    color: #fff;
+    border-radius: 50rpx;
+    flex-basis: 31%;
+    text-align: center;
+}
+
+.newAddress .icon-zengjia {
+    /* color: #6DC4AC; */
+    position: absolute;
+    left: 30rpx;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.newAddress .newtext {
+    font-size: 32rpx;
+    color: #333;
+    line-height: 80rpx;
+    padding: 20rpx;
+    color: #fff;
+}
+
+.icon-xiangyou {
+    color: #333;
+}
+.weixin{
+    flex-basis: 28%;
+    margin-right: 73rpx;
+    border: 2rpx solid #ccc;
+    align-items: center;
+    padding: 17rpx;
+    border-radius: 50rpx;
+    text-align: center;
+
+}
+.weixin .weitxt{
+    display: inline-block;
+
+}
+.icon-weixinfang{
+    color: #6bc839;
+
+}
